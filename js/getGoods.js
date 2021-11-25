@@ -1,8 +1,9 @@
 const getGoods = () => {
     const links = document.querySelectorAll('.navigation-link')
+    const more = document.querySelector('.more')
+    console.log(more)
 
     const renderGoods = (goods) => {
-
         const goodContainer = document.querySelector('.long-goods-list')
 
         goodContainer.innerHTML = ''
@@ -58,6 +59,11 @@ const getGoods = () => {
         renderGoods(JSON.parse(localStorage.getItem('goods')))
     }
 
+    if(more) {
+        more.addEventListener('click', () => {
+            getData()
+        })
+    }
 }
 
 getGoods()
